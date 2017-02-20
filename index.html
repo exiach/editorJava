@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Editor of Java</title>
+    <link rel=stylesheet href="libs/codemirror/lib/codemirror.css">
+    <script src="libs/codemirror/lib/codemirror.js"></script>
+  </head>
+  <body>
+
+    <div class="head">
+      <h1>Editor of Java</h1>
+    </div>
+
+    <div class="container">
+      <textarea name="" id="code-java" cols="30" rows="10"></textarea>
+        <script type="text/javascript">
+          CodeMirror.fromTextArea(document.getElementById("code-java"), {
+            lineNumbers: true,
+            mode: "text/x-java",
+            matchBrackets: true
+          });
+        </script>
+    </div>
+
+  </body>
+</html>
