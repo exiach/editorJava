@@ -6,6 +6,7 @@
     <link rel=stylesheet href="libs/codemirror/lib/codemirror.css">
     <script src="libs/codemirror/lib/codemirror.js"></script>
     <script src="libs/codemirror/mode/clike/clike.js"></script>
+    <link rel="stylesheet" href="tokens.css">
   </head>
   <body>
 
@@ -16,11 +17,36 @@
     <div class="container">
       <textarea name="" id="code-java" cols="30" rows="10"></textarea>
         <script type="text/javascript">
+          CodeMirror.defineMode("text/x-java", function() {
+            console.log('hoa');
+            return {
+              token: function(stream, state) {
+
+                if (stream.match("aaa") ) {
+                  return "style1";
+                } else if (stream.match("bbb") ) {
+                  return "style2";
+                } else {
+                  stream.next();
+                  return null;
+                }
+              }
+            };
+
+          });
+//          CodeMirror.defineMIME("text/x-java", "mymode");
+
+//          var editor = CodeMirror.fromTextArea(document.getElementById("code-java"), {
+//            mode: "mymode",
+//            lineNumbers: true
+//          });
+
           CodeMirror.fromTextArea(document.getElementById("code-java"), {
             lineNumbers: true,
             mode: "text/x-java",
             matchBrackets: true
           });
+//          console.log(editor);
         </script>
     </div>
 
